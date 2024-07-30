@@ -8,7 +8,14 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// CORS configuration
+const corsOptions = {
+  origin: 'https://66a87ecf11e7eee6a07a0e10--sprightly-pastelito-5ab8e6.netlify.app', // Your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type'],
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // MongoDB connection
